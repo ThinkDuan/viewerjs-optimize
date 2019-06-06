@@ -212,12 +212,18 @@ export default {
     } = this;
     const item = this.items[index];
     const img = item.querySelector('img');
-    const url = escapeHTMLEntities(getData(img, 'originalUrl'));
+    let url = escapeHTMLEntities(getData(img, 'originalUrl'));
     const alt = escapeHTMLEntities(img.getAttribute('alt'));
     const image = document.createElement('img');
-
+    if (url.indexOf('-thumb') > -1) {
+      url = url.replace('-thumb', '');
+    }
+    if (this.options.viewImageUrlParams) {
+      url += `/${this.options.viewImageUrlParams}`;
+    }
     image.src = url;
     image.alt = alt;
+
 
     if (isFunction(options.view)) {
       addListener(element, EVENT_VIEW, options.view, {
