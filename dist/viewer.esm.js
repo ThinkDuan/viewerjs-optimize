@@ -1,11 +1,11 @@
 /*!
- * Viewer.js v1.3.3
- * https://fengyuanchen.github.io/viewerjs
+ * Viewer.js v1.3.4
+ * https://github.com/ThinkDuan/viewerjs-optimize
  *
  * Copyright 2015-present Chen Fengyuan
  * Released under the MIT license
  *
- * Date: 2019-04-06T14:06:28.301Z
+ * Date: 2019-06-06T03:13:24.396Z
  */
 
 function _typeof(obj) {
@@ -441,6 +441,15 @@ function setStyle(element, styles) {
 
     style[property] = value;
   });
+}
+/**
+ * Escape a string for using in HTML.
+ * @param {String} value - The string to escape.
+ * @returns {String} Returns the escaped string.
+ */
+
+function escapeHTMLEntities(value) {
+  return isString(value) ? value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;') : value;
 }
 /**
  * Check if the given element has a special class.
@@ -950,14 +959,14 @@ var render = {
         list = this.list;
     var items = [];
     forEach(this.images, function (image, i) {
-      var src = image.src;
-      var alt = image.alt || getImageNameFromURL(src);
+      var src = escapeHTMLEntities(image.src);
+      var alt = escapeHTMLEntities(image.alt || getImageNameFromURL(src));
       var url = options.url;
 
       if (isString(url)) {
-        url = image.getAttribute(url);
+        url = escapeHTMLEntities(image.getAttribute(url));
       } else if (isFunction(url)) {
-        url = url.call(_this, image);
+        url = escapeHTMLEntities(url.call(_this, image));
       }
 
       if (src || url) {
@@ -1770,9 +1779,18 @@ var methods = {
         canvas = this.canvas;
     var item = this.items[index];
     var img = item.querySelector('img');
-    var url = getData(img, 'originalUrl');
-    var alt = img.getAttribute('alt');
+    var url = escapeHTMLEntities(getData(img, 'originalUrl'));
+    var alt = escapeHTMLEntities(img.getAttribute('alt'));
     var image = document.createElement('img');
+
+    if (url.indexOf('-thumb') > -1) {
+      url = url.replace('-thumb', '');
+    }
+
+    if (this.options.viewImageUrlParams) {
+      url += "/".concat(this.options.viewImageUrlParams);
+    }
+
     image.src = url;
     image.alt = alt;
 
@@ -1812,7 +1830,7 @@ var methods = {
     var onViewed = function onViewed() {
       var imageData = _this.imageData;
       var render = Array.isArray(options.title) ? options.title[1] : options.title;
-      title.innerHTML = isFunction(render) ? render.call(_this, image, imageData) : "".concat(alt, " (").concat(imageData.naturalWidth, " \xD7 ").concat(imageData.naturalHeight, ")");
+      title.innerHTML = escapeHTMLEntities(isFunction(render) ? render.call(_this, image, imageData) : "".concat(alt, " (").concat(imageData.naturalWidth, " \xD7 ").concat(imageData.naturalHeight, ")"));
     };
 
     var onLoad;
@@ -2184,8 +2202,8 @@ var methods = {
     forEach(this.items, function (item, i) {
       var img = item.querySelector('img');
       var image = document.createElement('img');
-      image.src = getData(img, 'originalUrl');
-      image.alt = img.getAttribute('alt');
+      image.src = escapeHTMLEntities(getData(img, 'originalUrl'));
+      image.alt = escapeHTMLEntities(img.getAttribute('alt'));
       total += 1;
       addClass(image, CLASS_FADE);
       toggleClass(image, CLASS_TRANSITION, options.transition);

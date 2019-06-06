@@ -1,14 +1,14 @@
 {
   "name": "viewerjs",
   "description": "JavaScript image viewer.",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "main": "dist/viewer.common.js",
   "module": "dist/viewer.esm.js",
   "browser": "dist/viewer.js",
   "style": "dist/viewer.css",
   "types": "types/index.d.ts",
-  "repository": "fengyuanchen/viewerjs",
-  "homepage": "https://fengyuanchen.github.io/viewerjs",
+  "repository": "ThinkDuan/viewerjs-optimize",
+  "homepage": "https://github.com/ThinkDuan/viewerjs-optimize",
   "license": "MIT",
   "author": {
     "name": "Chen Fengyuan",
