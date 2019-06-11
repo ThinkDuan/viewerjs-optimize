@@ -1,11 +1,11 @@
 /*!
- * ViewerOptimize.js v1.3.6
+ * ViewerOptimize.js v1.3.7
  * https://github.com/ThinkDuan/viewerjs-optimize
  *
  * Copyright 2015-present Chen Fengyuan
  * Released under the MIT license
  *
- * Date: 2019-06-11T07:44:35.869Z
+ * Date: 2019-06-11T10:29:28.564Z
  */
 
 function _typeof(obj) {
@@ -1011,7 +1011,8 @@ var render = {
     setStyle(this.list, assign({
       width: outerWidth * this.length
     }, getTransforms({
-      translateX: (this.viewerData.width - width) / 2 - outerWidth * i
+      translateX: 0 // translateX: ((this.viewerData.width - width) / 2) - (outerWidth * i),
+
     })));
   },
   resetList: function resetList() {
@@ -1294,7 +1295,8 @@ var handlers = {
       removeClass(this.canvas, CLASS_LOADING);
     }
 
-    image.style.cssText = 'height:0;' + "margin-left:".concat(viewerData.width / 2, "px;") + "margin-top:".concat(viewerData.height / 2, "px;") + 'max-width:none!important;' + 'position:absolute;' + 'width:0;';
+    image.style.cssText = 'height:0;' // + `margin-left:${viewerData.width / 2}px;`
+    + "margin-top:".concat(viewerData.height / 2, "px;") + 'max-width:none!important;' + 'position:absolute;' + 'width:0;';
     this.initImage(function () {
       toggleClass(image, CLASS_MOVE, options.movable);
       toggleClass(image, CLASS_TRANSITION, options.transition);
