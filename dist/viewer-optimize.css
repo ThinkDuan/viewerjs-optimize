@@ -1,11 +1,11 @@
 /*!
- * ViewerOptimize.js v1.3.7
+ * ViewerOptimize.js v1.3.8
  * https://github.com/ThinkDuan/viewerjs-optimize
  *
  * Copyright 2015-present Chen Fengyuan
  * Released under the MIT license
  *
- * Date: 2019-06-11T10:29:23.986Z
+ * Date: 2019-06-11T12:24:05.237Z
  */
 
 .viewer-zoom-in::before,
@@ -140,6 +140,12 @@
   max-width: none !important;
   min-height: 0 !important;
   min-width: 0 !important;
+  width: 100%;
+}
+
+.viewer-container-box {
+  height: 100%;
+  position: relative;
   width: 100%;
 }
 

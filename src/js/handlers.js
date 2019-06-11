@@ -151,7 +151,7 @@ export default {
 
     image.style.cssText = (
       'height:0;'
-      // + `margin-left:${viewerData.width / 2}px;`
+      + `margin-left:${viewerData.width / 2}px;`
       + `margin-top:${viewerData.height / 2}px;`
       + 'max-width:none!important;'
       + 'position:absolute;'

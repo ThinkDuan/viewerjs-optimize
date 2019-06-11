@@ -126,6 +126,12 @@
   }
 }
 
+.viewer-container-box {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
 .viewer-canvas {
   bottom: 0;
   left: 0;

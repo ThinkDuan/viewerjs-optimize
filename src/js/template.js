@@ -1,7 +1,7 @@
 export default (
   '<div class="viewer-container" touch-action="none">'
     + '<div class="viwer-container-box">'
-      + '<div class="viewer-canvas"></div>'
+      + '<div class="viewer-canvas" id="viewer-canvas"></div>'
       + '<div class="viewer-footer">'
         + '<div class="viewer-title"></div>'
         + '<div class="viewer-toolbar"></div>'

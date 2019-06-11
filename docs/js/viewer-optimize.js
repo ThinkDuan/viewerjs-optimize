@@ -1,11 +1,11 @@
 /*!
- * ViewerOptimize.js v1.3.7
+ * ViewerOptimize.js v1.3.8
  * https://github.com/ThinkDuan/viewerjs-optimize
  *
  * Copyright 2015-present Chen Fengyuan
  * Released under the MIT license
  *
- * Date: 2019-06-11T10:29:28.564Z
+ * Date: 2019-06-11T12:24:10.684Z
  */
 
 (function (global, factory) {
@@ -248,7 +248,7 @@
     zoomed: null
   };
 
-  var TEMPLATE = '<div class="viewer-container" touch-action="none">' + '<div class="viwer-container-box">' + '<div class="viewer-canvas"></div>' + '<div class="viewer-footer">' + '<div class="viewer-title"></div>' + '<div class="viewer-toolbar"></div>' + '<div class="viewer-navbar">' + '<ul class="viewer-list"></ul>' + '</div>' + '</div>' + '<div class="viewer-tooltip"></div>' + '<div role="button" class="viewer-button" data-viewer-action="mix"></div>' + '<div class="viewer-player"></div>' + '</div>' + '</div>';
+  var TEMPLATE = '<div class="viewer-container" touch-action="none">' + '<div class="viwer-container-box">' + '<div class="viewer-canvas" id="viewer-canvas"></div>' + '<div class="viewer-footer">' + '<div class="viewer-title"></div>' + '<div class="viewer-toolbar"></div>' + '<div class="viewer-navbar">' + '<ul class="viewer-list"></ul>' + '</div>' + '</div>' + '<div class="viewer-tooltip"></div>' + '<div role="button" class="viewer-button" data-viewer-action="mix"></div>' + '<div class="viewer-player"></div>' + '</div>' + '</div>';
 
   var IS_BROWSER = typeof window !== 'undefined';
   var WINDOW = IS_BROWSER ? window : {};
@@ -946,6 +946,12 @@
         this.parentData = viewerData;
       }
 
+      var containerBox = document.querySelector('#viewer-canvas');
+      viewerData = {
+        width: Math.max(containerBox.offsetWidth, options.minWidth),
+        height: Math.max(containerBox.offsetHeight, options.minHeight)
+      };
+
       if (this.fulled || !viewerData) {
         viewerData = this.containerData;
       }
@@ -1301,8 +1307,7 @@
         removeClass(this.canvas, CLASS_LOADING);
       }
 
-      image.style.cssText = 'height:0;' // + `margin-left:${viewerData.width / 2}px;`
-      + "margin-top:".concat(viewerData.height / 2, "px;") + 'max-width:none!important;' + 'position:absolute;' + 'width:0;';
+      image.style.cssText = 'height:0;' + "margin-left:".concat(viewerData.width / 2, "px;") + "margin-top:".concat(viewerData.height / 2, "px;") + 'max-width:none!important;' + 'position:absolute;' + 'width:0;';
       this.initImage(function () {
         toggleClass(image, CLASS_MOVE, options.movable);
         toggleClass(image, CLASS_TRANSITION, options.transition);

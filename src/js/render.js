@@ -49,7 +49,11 @@ export default {
 
       this.parentData = viewerData;
     }
-
+    const containerBox = document.querySelector('#viewer-canvas');
+    viewerData = {
+      width: Math.max(containerBox.offsetWidth, options.minWidth),
+      height: Math.max(containerBox.offsetHeight, options.minHeight),
+    };
     if (this.fulled || !viewerData) {
       viewerData = this.containerData;
     }
