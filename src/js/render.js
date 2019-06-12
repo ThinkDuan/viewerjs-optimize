@@ -54,9 +54,9 @@ export default {
       width: Math.max(containerBox.offsetWidth, options.minWidth),
       height: Math.max(containerBox.offsetHeight, options.minHeight),
     };
-    if (this.fulled || !viewerData) {
-      viewerData = this.containerData;
-    }
+    // if (this.fulled || !viewerData) {
+    //   viewerData = this.containerData;
+    // }
 
     this.viewerData = assign({}, viewerData);
   },
@@ -222,8 +222,7 @@ export default {
       height: imageData.height,
 
       // XXX: Not to use translateX/Y to avoid image shaking when zooming
-      // marginLeft: imageData.left,
-      marginLeft: '50px',
+      marginLeft: imageData.left,
       marginTop: imageData.top,
     }, getTransforms(imageData)));
 

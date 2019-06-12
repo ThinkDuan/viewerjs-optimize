@@ -1,11 +1,11 @@
 /*!
- * ViewerOptimize.js v1.3.10
+ * ViewerOptimize.js v1.3.11
  * https://github.com/ThinkDuan/viewerjs-optimize
  *
  * Copyright 2015-present Chen Fengyuan
  * Released under the MIT license
  *
- * Date: 2019-06-12T02:59:01.266Z
+ * Date: 2019-06-12T03:25:12.610Z
  */
 
 function _typeof(obj) {
@@ -944,11 +944,9 @@ var render = {
     viewerData = {
       width: Math.max(containerBox.offsetWidth, options.minWidth),
       height: Math.max(containerBox.offsetHeight, options.minHeight)
-    };
-
-    if (this.fulled || !viewerData) {
-      viewerData = this.containerData;
-    }
+    }; // if (this.fulled || !viewerData) {
+    //   viewerData = this.containerData;
+    // }
 
     this.viewerData = assign({}, viewerData);
   },
@@ -1100,8 +1098,7 @@ var render = {
       width: imageData.width,
       height: imageData.height,
       // XXX: Not to use translateX/Y to avoid image shaking when zooming
-      // marginLeft: imageData.left,
-      marginLeft: '50px',
+      marginLeft: imageData.left,
       marginTop: imageData.top
     }, getTransforms(imageData)));
 
