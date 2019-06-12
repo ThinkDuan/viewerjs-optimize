@@ -1,11 +1,11 @@
 /*!
- * ViewerOptimize.js v1.3.11
+ * ViewerOptimize.js v1.3.12
  * https://github.com/ThinkDuan/viewerjs-optimize
  *
  * Copyright 2015-present Chen Fengyuan
  * Released under the MIT license
  *
- * Date: 2019-06-12T03:25:12.610Z
+ * Date: 2019-06-12T07:09:45.264Z
  */
 
 (function (global, factory) {
@@ -950,9 +950,28 @@
       viewerData = {
         width: Math.max(containerBox.offsetWidth, options.minWidth),
         height: Math.max(containerBox.offsetHeight, options.minHeight)
+      };
+      var div1 = document.querySelector('.viewer-container');
+
+      div1.onmousedown = function mouseDownFunction(ev) {
+        var oevent = ev || window.event;
+        var distanceX = oevent.clientX - div1.offsetLeft;
+        var distanceY = oevent.clientY - div1.offsetTop;
+
+        document.onmousemove = function mouseMoveFunction(evs) {
+          var oevents = evs || window.event;
+          div1.style.left = "".concat(oevents.clientX - distanceX, "px");
+          div1.style.top = "".concat(oevents.clientY - distanceY, "px");
+        };
+
+        document.onmouseup = function mouseUpFunction() {
+          document.onmousemove = null;
+          document.onmouseup = null;
+        };
       }; // if (this.fulled || !viewerData) {
       //   viewerData = this.containerData;
       // }
+
 
       this.viewerData = assign({}, viewerData);
     },

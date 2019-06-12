@@ -54,6 +54,22 @@ export default {
       width: Math.max(containerBox.offsetWidth, options.minWidth),
       height: Math.max(containerBox.offsetHeight, options.minHeight),
     };
+    const div1 = document.querySelector('.viewer-container');
+    div1.onmousedown = function mouseDownFunction(ev) {
+      const oevent = ev || window.event;
+      const distanceX = oevent.clientX - div1.offsetLeft;
+      const distanceY = oevent.clientY - div1.offsetTop;
+
+      document.onmousemove = function mouseMoveFunction(evs) {
+        const oevents = evs || window.event;
+        div1.style.left = `${oevents.clientX - distanceX}px`;
+        div1.style.top = `${oevents.clientY - distanceY}px`;
+      };
+      document.onmouseup = function mouseUpFunction() {
+        document.onmousemove = null;
+        document.onmouseup = null;
+      };
+    };
     // if (this.fulled || !viewerData) {
     //   viewerData = this.containerData;
     // }
