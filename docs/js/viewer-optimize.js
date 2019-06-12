@@ -1,11 +1,11 @@
 /*!
- * ViewerOptimize.js v1.3.13
+ * ViewerOptimize.js v1.3.14
  * https://github.com/ThinkDuan/viewerjs-optimize
  *
  * Copyright 2015-present Chen Fengyuan
  * Released under the MIT license
  *
- * Date: 2019-06-12T12:16:56.321Z
+ * Date: 2019-06-12T12:29:31.354Z
  */
 
 (function (global, factory) {
@@ -248,7 +248,7 @@
     zoomed: null
   };
 
-  var TEMPLATE = '<div class="viewer-container" touch-action="none">' + '<div class="viewer-container-box">' + '<div class="viewer-canvas" id="viewer-canvas"></div>' + '<div class="viewer-footer">' + '<div class="viewer-title"></div>' + '<div class="viewer-toolbar"></div>' + '<div class="viewer-navbar">' + '<ul class="viewer-list"></ul>' + '</div>' + '</div>' + '<div class="viewer-tooltip"></div>' + '<div class="viewer-header-box" title="按住鼠标鼠标左键可拖动">' + '<div role="button" class="viewer-button" data-viewer-action="mix"></div>' + '</div>' + '<div class="viewer-player"></div>' + '</div>' + '</div>';
+  var TEMPLATE = '<div class="viewer-container" touch-action="none">' + '<div class="viewer-container-box">' + '<div class="viewer-canvas" id="viewer-canvas"></div>' + '<div class="viewer-footer">' + '<div class="viewer-title"></div>' + '<div class="viewer-toolbar"></div>' + '<div class="viewer-navbar">' + '<ul class="viewer-list"></ul>' + '</div>' + '</div>' + '<div class="viewer-tooltip"></div>' + '<div class="viewer-button-box" title="按住鼠标鼠标左键可拖动">' + '<div role="button" class="viewer-button" data-viewer-action="mix"></div>' + '</div>' + '<div class="viewer-player"></div>' + '</div>' + '</div>';
 
   var IS_BROWSER = typeof window !== 'undefined';
   var WINDOW = IS_BROWSER ? window : {};
@@ -963,11 +963,11 @@
           div1.style.left = "".concat(oevents.clientX - distanceX, "px");
           div1.style.top = "".concat(oevents.clientY - distanceY, "px");
         };
-      };
 
-      document.onmouseup = function mouseUpFunction() {
-        document.onmousemove = null;
-        document.onmouseup = null;
+        document.onmouseup = function mouseUpFunction() {
+          document.onmousemove = null;
+          document.onmouseup = null;
+        };
       }; // if (this.fulled || !viewerData) {
       //   viewerData = this.containerData;
       // }

@@ -65,10 +65,10 @@ export default {
         div1.style.left = `${oevents.clientX - distanceX}px`;
         div1.style.top = `${oevents.clientY - distanceY}px`;
       };
-    };
-    document.onmouseup = function mouseUpFunction() {
-      document.onmousemove = null;
-      document.onmouseup = null;
+      document.onmouseup = function mouseUpFunction() {
+        document.onmousemove = null;
+        document.onmouseup = null;
+      };
     };
     // if (this.fulled || !viewerData) {
     //   viewerData = this.containerData;

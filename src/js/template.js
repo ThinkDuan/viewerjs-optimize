@@ -10,7 +10,7 @@ export default (
         + '</div>'
       + '</div>'
       + '<div class="viewer-tooltip"></div>'
-      + '<div class="viewer-header-box" title="按住鼠标鼠标左键可拖动">'
+      + '<div class="viewer-button-box" title="按住鼠标鼠标左键可拖动">'
         + '<div role="button" class="viewer-button" data-viewer-action="mix"></div>'
       + '</div>'
       + '<div class="viewer-player"></div>'
