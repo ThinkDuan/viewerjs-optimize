@@ -1,11 +1,11 @@
 /*!
- * ViewerOptimize.js v1.3.9
+ * ViewerOptimize.js v1.3.10
  * https://github.com/ThinkDuan/viewerjs-optimize
  *
  * Copyright 2015-present Chen Fengyuan
  * Released under the MIT license
  *
- * Date: 2019-06-12T02:45:19.179Z
+ * Date: 2019-06-12T02:59:01.266Z
  */
 
 (function (global, factory) {
@@ -1107,6 +1107,7 @@
         height: imageData.height,
         // XXX: Not to use translateX/Y to avoid image shaking when zooming
         // marginLeft: imageData.left,
+        marginLeft: '50px',
         marginTop: imageData.top
       }, getTransforms(imageData)));
 

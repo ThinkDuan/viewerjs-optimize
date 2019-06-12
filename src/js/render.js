@@ -223,6 +223,7 @@ export default {
 
       // XXX: Not to use translateX/Y to avoid image shaking when zooming
       // marginLeft: imageData.left,
+      marginLeft: '50px',
       marginTop: imageData.top,
     }, getTransforms(imageData)));
 
