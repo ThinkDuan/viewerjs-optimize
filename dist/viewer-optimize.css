@@ -1,11 +1,11 @@
 /*!
- * ViewerOptimize.js v1.3.12
+ * ViewerOptimize.js v1.3.13
  * https://github.com/ThinkDuan/viewerjs-optimize
  *
  * Copyright 2015-present Chen Fengyuan
  * Released under the MIT license
  *
- * Date: 2019-06-12T07:09:36.431Z
+ * Date: 2019-06-12T12:16:35.149Z
  */
 
 .viewer-zoom-in::before,
@@ -331,6 +331,15 @@
 
 .viewer-title:hover {
   opacity: 1;
+}
+
+.viewer-button-box {
+  background: #eee;
+  cursor: pointer;
+  height: 60px;
+  opacity: 0.5;
+  position: relative;
+  width: 100%;
 }
 
 .viewer-button {

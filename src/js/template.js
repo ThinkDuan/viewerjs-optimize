@@ -1,6 +1,6 @@
 export default (
   '<div class="viewer-container" touch-action="none">'
-    + '<div class="viwer-container-box">'
+    + '<div class="viewer-container-box">'
       + '<div class="viewer-canvas" id="viewer-canvas"></div>'
       + '<div class="viewer-footer">'
         + '<div class="viewer-title"></div>'
@@ -10,7 +10,9 @@ export default (
         + '</div>'
       + '</div>'
       + '<div class="viewer-tooltip"></div>'
-      + '<div role="button" class="viewer-button" data-viewer-action="mix"></div>'
+      + '<div class="viewer-header-box" title="按住鼠标鼠标左键可拖动">'
+        + '<div role="button" class="viewer-button" data-viewer-action="mix"></div>'
+      + '</div>'
       + '<div class="viewer-player"></div>'
       + '</div>'
     + '</div>'
