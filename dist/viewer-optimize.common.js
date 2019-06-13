@@ -1,11 +1,11 @@
 /*!
- * ViewerOptimize.js v1.3.14
+ * ViewerOptimize.js v1.3.15
  * https://github.com/ThinkDuan/viewerjs-optimize
  *
  * Copyright 2015-present Chen Fengyuan
  * Released under the MIT license
  *
- * Date: 2019-06-12T12:29:31.354Z
+ * Date: 2019-06-13T09:21:31.383Z
  */
 
 'use strict';

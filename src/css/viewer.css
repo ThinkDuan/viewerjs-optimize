@@ -384,9 +384,9 @@
   opacity: 1;
 }
 
-.viewer-transition {
+/* .viewer-transition {
   transition: all 0.3s;
-}
+} */
 
 @keyframes viewer-spinner {
   0% {
