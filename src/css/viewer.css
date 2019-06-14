@@ -384,9 +384,9 @@
   opacity: 1;
 }
 
-/* .viewer-transition {
-  transition: all 0.3s;
-} */
+.viewer-transition {
+  transition: all 0.00001s;
+}
 
 @keyframes viewer-spinner {
   0% {

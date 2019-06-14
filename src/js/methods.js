@@ -178,6 +178,9 @@ export default {
       removeClass(viewer, CLASS_IN);
       this.hidden();
     }
+    if (this.viewer && this.viewer.parentNode) {
+      this.viewer.parentNode.removeChild(this.viewer);
+    }
 
     return this;
   },
@@ -993,7 +996,9 @@ export default {
       }
 
       this.ready = false;
-      this.viewer.parentNode.removeChild(this.viewer);
+      if (this.viewer && this.viewer.parentNode) {
+        this.viewer.parentNode.removeChild(this.viewer);
+      }
     } else if (options.inline) {
       if (this.delaying) {
         this.delaying.abort();
@@ -1005,7 +1010,9 @@ export default {
     if (!options.inline) {
       removeListener(element, EVENT_CLICK, this.onStart);
     }
-
+    if (this.viewer && this.viewer.parentNode) {
+      this.viewer.parentNode.removeChild(this.viewer);
+    }
     element[NAMESPACE] = undefined;
     return this;
   },

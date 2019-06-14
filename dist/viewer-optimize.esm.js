@@ -1,11 +1,11 @@
 /*!
- * ViewerOptimize.js v1.3.15
+ * ViewerOptimize.js v1.3.16
  * https://github.com/ThinkDuan/viewerjs-optimize
  *
  * Copyright 2015-present Chen Fengyuan
  * Released under the MIT license
  *
- * Date: 2019-06-13T09:21:31.383Z
+ * Date: 2019-06-14T05:35:38.533Z
  */
 
 function _typeof(obj) {
@@ -1770,6 +1770,10 @@ var methods = {
       this.hidden();
     }
 
+    if (this.viewer && this.viewer.parentNode) {
+      this.viewer.parentNode.removeChild(this.viewer);
+    }
+
     return this;
   },
 
@@ -2567,7 +2571,10 @@ var methods = {
       }
 
       this.ready = false;
-      this.viewer.parentNode.removeChild(this.viewer);
+
+      if (this.viewer && this.viewer.parentNode) {
+        this.viewer.parentNode.removeChild(this.viewer);
+      }
     } else if (options.inline) {
       if (this.delaying) {
         this.delaying.abort();
@@ -2578,6 +2585,10 @@ var methods = {
 
     if (!options.inline) {
       removeListener(element, EVENT_CLICK, this.onStart);
+    }
+
+    if (this.viewer && this.viewer.parentNode) {
+      this.viewer.parentNode.removeChild(this.viewer);
     }
 
     element[NAMESPACE] = undefined;
