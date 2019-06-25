@@ -54,7 +54,9 @@ export default {
       width: Math.max(containerBox.offsetWidth, options.minWidth),
       height: Math.max(containerBox.offsetHeight, options.minHeight),
     };
-    const div1 = document.querySelector('.viewer-container');
+    // eslint-disable-next-line prefer-template
+    const elementClassName = '.' + options.className.split(' ')[1];
+    const div1 = document.querySelector(elementClassName);
     div1.onmousedown = function mouseDownFunction(ev) {
       const oevent = ev || window.event;
       const distanceX = oevent.clientX - div1.offsetLeft;
@@ -101,14 +103,14 @@ export default {
       if (src || url) {
         items.push('<li>'
           + '<img'
-            + ` src="${src || url}"`
-            + ' role="button"'
-            + ' data-viewer-action="view"'
-            + ` data-index="${i}"`
-            + ` data-original-url="${url || src}"`
-            + ` alt="${alt}"`
+          + ` src="${src || url}"`
+          + ' role="button"'
+          + ' data-viewer-action="view"'
+          + ` data-index="${i}"`
+          + ` data-original-url="${url || src}"`
+          + ` alt="${alt}"`
           + '>'
-        + '</li>');
+          + '</li>');
       }
     });
 
