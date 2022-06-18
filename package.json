@@ -1,7 +1,7 @@
 {
   "name": "viewerjs-optimize",
   "description": "JavaScript image viewer-optimize.",
-  "version": "1.3.19",
+  "version": "1.3.20",
   "main": "dist/viewer-optimize.common.js",
   "module": "dist/viewer-optimize.esm.js",
   "browser": "dist/viewer-optimize.js",
