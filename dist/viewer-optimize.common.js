@@ -1,27 +1,23 @@
 /*!
- * ViewerOptimize.js v1.3.17
+ * ViewerOptimize.js v1.3.18
  * https://github.com/ThinkDuan/viewerjs-optimize
  *
  * Copyright 2015-present Chen Fengyuan
  * Released under the MIT license
  *
- * Date: 2019-06-25T03:06:48.454Z
+ * Date: 2022-06-18T13:37:20.050Z
  */
 
 'use strict';
 
 function _typeof(obj) {
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof = function (obj) {
-      return typeof obj;
-    };
-  } else {
-    _typeof = function (obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
+  "@babel/helpers - typeof";
 
-  return _typeof(obj);
+  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
+    return typeof obj;
+  } : function (obj) {
+    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+  }, _typeof(obj);
 }
 
 function _classCallCheck(instance, Constructor) {
@@ -43,6 +39,9 @@ function _defineProperties(target, props) {
 function _createClass(Constructor, protoProps, staticProps) {
   if (protoProps) _defineProperties(Constructor.prototype, protoProps);
   if (staticProps) _defineProperties(Constructor, staticProps);
+  Object.defineProperty(Constructor, "prototype", {
+    writable: false
+  });
   return Constructor;
 }
 
@@ -386,15 +385,15 @@ function forEach(data, callback) {
     if (Array.isArray(data) || isNumber(data.length)
     /* array-like */
     ) {
-        var length = data.length;
-        var i;
+      var length = data.length;
+      var i;
 
-        for (i = 0; i < length; i += 1) {
-          if (callback.call(data, data[i], i, data) === false) {
-            break;
-          }
+      for (i = 0; i < length; i += 1) {
+        if (callback.call(data, data[i], i, data) === false) {
+          break;
         }
-      } else if (isObject(data)) {
+      }
+    } else if (isObject(data)) {
       Object.keys(data).forEach(function (key) {
         callback.call(data, data[key], key, data);
       });
@@ -1445,8 +1444,6 @@ var handlers = {
         }
 
         break;
-
-      default:
     }
   },
   dragstart: function dragstart(event) {
@@ -2726,8 +2723,6 @@ var others = {
 
           break;
         }
-
-      default:
     } // Override
 
 
@@ -2745,9 +2740,7 @@ var others = {
 
 var AnotherViewer = WINDOW.Viewer;
 
-var Viewer =
-/*#__PURE__*/
-function () {
+var Viewer = /*#__PURE__*/function () {
   /**
    * Create a new Viewer.
    * @param {Element} element - The target element for viewing.
