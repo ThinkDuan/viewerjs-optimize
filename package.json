@@ -11,8 +11,7 @@
   "homepage": "https://github.com/ThinkDuan/viewerjs-optimize",
   "license": "MIT",
   "author": {
-    "name": "Chen Fengyuan",
-    "url": "https://chenfengyuan.com"
+    "name": "ThinkDuan"
   },
   "files": [
     "src",
