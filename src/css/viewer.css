@@ -237,6 +237,7 @@
       border-radius: 50%;
       cursor: pointer;
       float: left;
+      font-size: 0;
       height: 24px;
       overflow: hidden;
       transition: background-color 0.15s;

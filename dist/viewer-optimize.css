@@ -1,11 +1,11 @@
 /*!
- * ViewerOptimize.js v1.3.20
+ * ViewerOptimize.js v1.3.21
  * https://github.com/ThinkDuan/viewerjs-optimize
  *
  * Copyright 2022 ThinkDuan
  * Released under the MIT license
  *
- * Date: 2022-06-18T14:39:09.449Z
+ * Date: 2022-06-20T12:39:54.097Z
  */
 
 .viewer-zoom-in::before,
@@ -256,6 +256,7 @@
   border-radius: 50%;
   cursor: pointer;
   float: left;
+  font-size: 0;
   height: 24px;
   overflow: hidden;
   -webkit-transition: background-color 0.15s;

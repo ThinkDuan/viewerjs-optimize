@@ -1,11 +1,11 @@
 /*!
- * ViewerOptimize.js v1.3.20
+ * ViewerOptimize.js v1.3.21
  * https://github.com/ThinkDuan/viewerjs-optimize
  *
  * Copyright 2022 ThinkDuan
  * Released under the MIT license
  *
- * Date: 2022-06-18T14:39:10.869Z
+ * Date: 2022-06-20T12:39:55.833Z
  */
 
 function _typeof(obj) {
